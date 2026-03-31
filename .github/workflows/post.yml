@@ -30,5 +30,6 @@ jobs:
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+          CHANGED_FILES: ${{ steps.changed.outputs.files }}
         run: |
-          python bot.py ${{ steps.changed.outputs.files }}
+          python bot.py "$CHANGED_FILES"
